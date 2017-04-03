@@ -1,0 +1,146 @@
+.about-pop-up {
+  z-index: 500;
+  position: absolute;
+  @include align(l,c);
+  box-sizing: border-box;
+  height: 100%;
+  background-color: $white-color;
+  @include responsive(width, 100%, 80%, 75%, 50%, 50%);
+  @include responsive(left, -100%, -80%, -75%, -50%, -50%);
+
+  transition: left .5s;
+  animation-timing-function: ease-in;
+
+  .content {
+    position: absolute;
+    width: 66%;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 17%;
+    @include device('small-mobile') {
+      width: 80%;
+      left: 10%;
+    }
+
+    h2 {
+      position: relative;
+      font-family: Playfair Display;
+      @include responsive(font-size, 36px, 36px, 36px, 36px, 48px);
+      color: $black-color;
+      margin-bottom: 50px;
+      @include device('mobile') {
+        text-align: center;
+        margin-bottom: 25px;
+
+        &:after {
+          display: none;
+        }
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -50px;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 6px;
+        background-color: $black-color;
+      }
+    }
+
+    p {
+      @include responsive(font-size, 14px, 16px, 16px, 16px, 18px);
+      @include responsive(line-height, 22px, 22px, 22px, 22px, 24px);
+      font-weight: 300;
+      color: $black-color;
+
+      @include device('small-mobile') {
+        line-height: 18px;
+      }
+
+      @include device('mobile') {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.about-pop-up.open {
+  left: 0;
+}
+
+.about-info {
+  $padding-large-desktop: 40px;
+  $padding-desktop: 20px;
+
+  display: none;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .25s;
+
+  @include device('desktop') {
+    display: block;
+    width: calc(50% - #{$global-padding-desktop});
+    right: $global-padding-desktop;
+  }
+  @include device('large-desktop') {
+    width: calc(50% - #{$global-padding-large-desktop});
+    right: $global-padding-large-desktop;
+  }
+
+  .block-wrapper {
+    position: absolute;
+    @include align(c,c);
+    @include device('desktop') {
+      width: calc(223px + #{$padding-desktop}*6);
+    }
+    @include device('large-desktop') {
+      width: calc(297px + #{$padding-large-desktop}*6);
+    }
+
+    .block {
+      float: left;
+      display: block;
+      @include device('desktop') {
+        padding: 0 $padding-desktop;
+      }
+      @include device('large-desktop') {
+        padding: 0 $padding-large-desktop;
+      }
+
+      p.title {
+        text-align: center;
+        font-family: Roboto;
+        font-weight: 200;
+        text-transform: lowercase;
+        @include device('desktop') {
+          font-size: 12px;
+        }
+        @include device('large-desktop') {
+          font-size: 14px;
+        }
+      }
+
+      p.number {
+        text-align: center;
+        font-family: Roboto;
+        font-weight: 900;
+        @include device('desktop') {
+          font-size: 48px;
+        }
+        @include device('large-desktop') {
+          font-size: 64px;
+        }
+      }
+    }
+  }
+}
+
+.about-info.show {
+  opacity: 1;
+}

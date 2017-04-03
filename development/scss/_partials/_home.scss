@@ -1,0 +1,264 @@
+// Home Style
+
+#index {
+
+	.section.header {
+		position: relative;
+
+		video {
+			position: absolute;
+			left: 50%;
+			bottom: 0;
+			transform: translateX(-50%);
+			height: 100%;
+			min-width: 100%;
+			background-image: url('../assets/video/video-bg-poster.jpg');
+			background-size: cover;
+			background-color: black; /* in case the video doesn't fit the whole page*/
+			background-position: center center;
+			object-fit: cover; /*cover video background */
+			z-index: 3;
+			transition: filter .5s;
+		}
+
+		// video.blur {
+		// 	filter: blur(4px);
+		// }
+
+		video::-webkit-media-controls {
+			display:none !important;
+		}
+
+		.video-darken {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 4;
+			width: 100%;
+			height: 100%;
+			background-color: #000;
+			opacity: 0;
+			transition: opacity .5s;
+		}
+
+		.video-darken.visible {
+			opacity: .65;
+		}
+
+		.content {
+			width: 100%;
+			position: absolute;
+			top: 50%;
+			left: 0;
+			z-index: 4;
+			transform: translate3d(0,0,0) translateY(-50%);
+			transition: opacity .25s;
+			@include device('mobile') {
+				margin-top: 30px;
+			}
+
+			.btn-projects {
+				margin-top: 50px;
+				@include device('mobile') {
+					margin-top: 70px;
+				}
+
+				&:hover {
+					@include device('tablet') {
+						color: $black-color;
+						background-color: $white-color;
+					}
+				}
+			}
+
+			h1 {
+				font-family: Playfair Display;
+				text-align: center;
+				@include responsive(font-size, 32px, 42px, 54px, 48px, 68px);
+				@include responsive(line-height, 32px, 42px, 54px, 48px, 68px);
+			}
+
+			h2 {
+				font-family: Roboto;
+				font-weight: 100;
+				@include responsive(font-size, 14px, 18px, 21px, 20px, 26px);
+				@include responsive(line-height, 14px, 18px, 21px, 20px, 26px);
+				text-align: center;
+				margin-top: 30px;
+				@include device('mobile') {
+					margin-top: 20px;
+				}
+			}
+		}
+
+		.content.hide {
+			opacity: 0;
+
+			.btn-projects {
+				pointer-events: none;
+			}
+		}
+
+		.arrow-link {
+			display: block;
+			position: absolute;
+			z-index: 500;
+			height: 36px;
+			@include align(c, c);
+			@include device('mobile') {
+				width: calc(100% - (#{$global-padding-mobile} * 2));
+			}
+			@include device('tablet') {
+				width: calc(100% - (#{$global-padding-tablet} * 2));
+			}
+			@include device('laptop') {
+				width: calc(100% - (#{$global-padding-laptop} * 2));
+			}
+			@include device('desktop') {
+				width: calc(100% - (#{$global-padding-desktop} * 2));
+			}
+			@include device('large-desktop') {
+				width: calc(100% - (#{$global-padding-large-desktop} * 2));
+			}
+
+			.arrow-about,
+			.arrow-contact {
+				position: absolute;
+				pointer-events: auto;
+				cursor: pointer;
+				@include device('mobile') {
+					display: none;
+				}
+
+				.arrow {
+					position: relative;
+					height: 36px;
+					width: 36px;
+					transition: all .25s;
+
+					.line {
+						position: absolute;
+						height: 3px;
+						width: 28px;
+						background-color: $white-color;
+						transition: all .2s;
+
+						&:nth-child(1) {
+							left: 50%;
+							top: 7.5px;
+							transform: translate(-50%,-50%) rotate(-45deg);
+						}
+						&:nth-child(2) {
+							transform: translate(-50%,-50%) rotate(45deg);
+							left: 50%;
+							bottom: 7.5px;
+						}
+					}
+				}
+
+				.arrow.btn-close {
+					position: relative;
+					height: 36px;
+					width: 36px;
+					transition: all .25s;
+
+					.line {
+						position: absolute;
+						left: 50%;
+						height: 3px;
+						width: 28px;
+						background-color: $white-color;
+
+						&:nth-child(1) {
+							transform: translate(-50%,-50%) rotate(-45deg);
+							top: 16.5px;
+						}
+						&:nth-child(2) {
+							transform: translate(-50%,-50%) rotate(45deg);
+							bottom: 16.5px;
+						}
+					}
+				}
+
+				p {
+					font-weight: 900;
+					line-height: 34px;
+					margin: 0 20px;
+					@include responsive(font-size, 24px, 18px, 22px, 18px, 24px);
+					transition: all .25s;
+				}
+
+				p.btn-close {
+					opacity: 0;
+				}
+
+				&:hover {
+					p {
+						margin-left: 30px;
+						margin-right: 30px;
+					}
+				}
+			}
+
+			.arrow-about {
+				@include align(l,c);
+				.arrow, p {
+					float: left;
+				}
+			}
+
+			.arrow-contact {
+				@include align(r,c);
+				.arrow {
+					transform: rotate(180deg);
+				}
+				.arrow, p {
+					float: right;
+				}
+			}
+		}
+
+		.scrool-down {
+			display: block;
+			position: absolute;
+			z-index: 500;
+			pointer-events: auto;
+			cursor: pointer;
+			height: 21px;
+			width: 36px;
+			background-image: url('../assets/img/icon/down.png');
+			background-size: 100%;
+			background-position: bottom;
+			background-repeat: no-repeat;
+			@include align(c, b);
+			@include responsive(bottom, $global-padding-mobile, $global-padding-tablet, $global-padding-laptop, $global-padding-desktop, $global-padding-large-desktop);
+
+			@include device('mobile') {
+				width: 21px;
+			}
+
+			transition: opacity .25s;
+
+			animation-name: ScroolDown;
+			animation-duration: 2s;
+			animation-iteration-count: infinite;
+			animation-timing-function: ease-in-out;
+		}
+
+		.scrool-down.hide {
+			opacity: 0;
+		}
+
+		@keyframes ScroolDown {
+			0% {
+				margin-bottom: 5px;
+			}
+			50% {
+				margin-bottom: -5px;
+			}
+			100% {
+				margin-bottom: 5px;
+			}
+		}
+	}
+}
