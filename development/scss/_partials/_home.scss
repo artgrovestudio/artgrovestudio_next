@@ -72,19 +72,22 @@
 			}
 
 			h1 {
-				font-family: Playfair Display;
+				font-family: Cocomat;
+				text-transform: uppercase;
+				font-weight: 500;
+				letter-spacing: .25em;
 				text-align: center;
-				@include responsive(font-size, 32px, 42px, 54px, 48px, 68px);
-				@include responsive(line-height, 32px, 42px, 54px, 48px, 68px);
+				@include responsive(font-size, 32px, 42px, 54px, 48px, 72px);
+				@include responsive(line-height, 32px, 42px, 54px, 48px, 72px);
 			}
 
 			h2 {
-				font-family: Roboto;
 				font-weight: 100;
-				@include responsive(font-size, 14px, 18px, 21px, 20px, 26px);
-				@include responsive(line-height, 14px, 18px, 21px, 20px, 26px);
+				letter-spacing: .1em;
 				text-align: center;
 				margin-top: 30px;
+				@include responsive(font-size, 14px, 18px, 21px, 20px, 26px);
+				@include responsive(line-height, 14px, 18px, 21px, 20px, 26px);
 				@include device('mobile') {
 					margin-top: 20px;
 				}
@@ -99,150 +102,86 @@
 			}
 		}
 
-		.arrow-link {
-			display: block;
+		.about-link,
+		.contact-link {
+			user-select: none;
+			cursor: pointer;
 			position: absolute;
-			z-index: 500;
-			height: 36px;
-			@include align(c, c);
-			@include device('mobile') {
-				width: calc(100% - (#{$global-padding-mobile} * 2));
-			}
-			@include device('tablet') {
-				width: calc(100% - (#{$global-padding-tablet} * 2));
-			}
-			@include device('laptop') {
-				width: calc(100% - (#{$global-padding-laptop} * 2));
-			}
-			@include device('desktop') {
-				width: calc(100% - (#{$global-padding-desktop} * 2));
-			}
-			@include device('large-desktop') {
-				width: calc(100% - (#{$global-padding-large-desktop} * 2));
-			}
+			height: 800px;
+			width: 100px;
+			z-index: 6;
 
-			.arrow-about,
-			.arrow-contact {
+			.text {
 				position: absolute;
-				pointer-events: auto;
-				cursor: pointer;
-				@include device('mobile') {
-					display: none;
-				}
+				top: 50%;
 
-				.arrow {
+				div {
 					position: relative;
-					height: 36px;
-					width: 36px;
-					transition: all .25s;
-
-					.line {
-						position: absolute;
-						height: 3px;
-						width: 28px;
-						background-color: $white-color;
-						transition: all .2s;
-
-						&:nth-child(1) {
-							left: 50%;
-							top: 7.5px;
-							transform: translate(-50%,-50%) rotate(-45deg);
-						}
-						&:nth-child(2) {
-							transform: translate(-50%,-50%) rotate(45deg);
-							left: 50%;
-							bottom: 7.5px;
-						}
-					}
-				}
-
-				.arrow.btn-close {
-					position: relative;
-					height: 36px;
-					width: 36px;
-					transition: all .25s;
-
-					.line {
-						position: absolute;
-						left: 50%;
-						height: 3px;
-						width: 28px;
-						background-color: $white-color;
-
-						&:nth-child(1) {
-							transform: translate(-50%,-50%) rotate(-45deg);
-							top: 16.5px;
-						}
-						&:nth-child(2) {
-							transform: translate(-50%,-50%) rotate(45deg);
-							bottom: 16.5px;
-						}
-					}
-				}
-
-				p {
-					font-weight: 900;
-					line-height: 34px;
-					margin: 0 20px;
-					@include responsive(font-size, 24px, 18px, 22px, 18px, 24px);
-					transition: all .25s;
-				}
-
-				p.btn-close {
-					opacity: 0;
-				}
-
-				&:hover {
-					p {
-						margin-left: 30px;
-						margin-right: 30px;
-					}
+					height: 20px;
+					width: 20px;
+					font-size: 18px;
+					font-weight: 300;
+					margin: 15px 0;
+					transition: margin .25s;
 				}
 			}
 
-			.arrow-about {
-				@include align(l,c);
-				.arrow, p {
-					float: left;
+			&:hover {
+				.text {
+					div {
+						margin: 40px 0;
+					}
 				}
 			}
+		}
 
-			.arrow-contact {
-				@include align(r,c);
-				.arrow {
-					transform: rotate(180deg);
+		.about-link {
+			@include align(l,c);
+			@include responsive(margin-left, $global-padding-mobile, $global-padding-tablet, $global-padding-laptop, $global-padding-desktop, $global-padding-large-desktop);
+
+			.text {
+				left: 0;
+				transform: translateY(-50%) rotate(180deg);
+
+				div {
+					transform: rotate(90deg);
 				}
-				.arrow, p {
-					float: right;
+			}
+		}
+
+		.contact-link {
+			@include align(r,c);
+			@include responsive(margin-right, $global-padding-mobile, $global-padding-tablet, $global-padding-laptop, $global-padding-desktop, $global-padding-large-desktop);
+
+			.text {
+				right: 0;
+				transform: translateY(-50%);
+
+				div {
+					transform: rotate(90deg);
 				}
 			}
 		}
 
 		.scrool-down {
-			display: block;
 			position: absolute;
-			z-index: 500;
-			pointer-events: auto;
-			cursor: pointer;
-			height: 21px;
-			width: 36px;
-			background-image: url('../assets/img/icon/down.png');
-			background-size: 100%;
-			background-position: bottom;
-			background-repeat: no-repeat;
-			@include align(c, b);
-			@include responsive(bottom, $global-padding-mobile, $global-padding-tablet, $global-padding-laptop, $global-padding-desktop, $global-padding-large-desktop);
+			@include align(c,b);
+			@include responsive(margin-bottom, $global-padding-mobile, $global-padding-tablet, $global-padding-laptop, $global-padding-desktop, $global-padding-large-desktop);
+			z-index: 3;
 
-			@include device('mobile') {
-				width: 21px;
+			.line {
+				width: 1px;
+				height: 100px;
+				background-color: $white-color;
 			}
 
-			transition: opacity .25s;
-
-			animation-name: ScroolDown;
-			animation-duration: 2s;
-			animation-iteration-count: infinite;
-			animation-timing-function: ease-in-out;
+			.rectangle {
+				position: absolute;
+				@include align(c,t);
+				width: 5px;
+				height: 5px;
+				background-color: $white-color;
+			}
 		}
 
 		.scrool-down.hide {
