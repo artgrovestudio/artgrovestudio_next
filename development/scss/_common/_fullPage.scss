@@ -72,25 +72,6 @@ html.fp-enabled,
   width: 100%;
   top: 50%;
   transform: translateY(-50%);
-
-  @include backdown('margin-left');
-  @include backdown('margin-right');
-
-  @include device('mobile') {
-    width: calc(100% - (#{$global-padding-mobile} * 2));
-  }
-  @include device('tablet') {
-    width: calc(100% - (#{$global-padding-tablet} * 2));
-  }
-  @include device('laptop') {
-    width: calc(100% - (#{$global-padding-laptop} * 2));
-  }
-  @include device('desktop') {
-    width: calc(100% - (#{$global-padding-desktop} * 2));
-  }
-  @include device('large-desktop') {
-    width: calc(100% - (#{$global-padding-large-desktop} * 2));
-  }
 }
 .fp-controlArrow.fp-prev {
   cursor: pointer;

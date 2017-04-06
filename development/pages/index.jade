@@ -6,26 +6,22 @@ html
 
     //- Style
     link(rel='stylesheet', href="https://fonts.googleapis.com/css?family=Playfair+Display:900|Roboto:100,300,400,900")
-    //- link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css')
-    link(rel='stylesheet', type='text/css', href='css/loader.css')
     link(rel='stylesheet', type='text/css', href='css/style.css')
 
   body#index
 
-    include _includes/_loader
     include _includes/_nav
-    include _includes/_about
-    include _includes/_contact
 
     #fullpage
       .section.fp-scrollable.header
         video(loop='', muted='', data-autoplay='')
-          source(src='assets/video/video.mp4', type='video/mp4')
-          source(src='assets/video/video.webm', type='video/webm')
+          source(src='assets/video/video-.mp4', type='video/mp4')
+          source(src='assets/video/video-.webm', type='video/webm')
         .video-darken
         .content
           h1 Art Grove Studio
           h2 Студия дизайна и веб разработки
+          img(class="logo-blur" src="assets/img/logo_white.png")
         .about-link
           .text
             div О

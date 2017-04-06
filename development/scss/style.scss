@@ -1,10 +1,17 @@
+// Variables
 @import "_common/_variables";
-@import "_mixin/_mixin";
-@import "_mixin/_gradient";
+
+// Mixin
+@import "_mixin/_media";
+@import "_mixin/_align";
+@import "_mixin/_responsive";
+@import "_mixin/_indentation";
+
+// Common styles
 @import "_common/_common";
 @import "_common/_fullPage";
+
+// Partials styles
 @import "_partials/_nav";
-@import "_partials/_menu-desktop";
 @import "_partials/_home";
-@import "_partials/_about";
-@import "_partials/_contact";
+// @import "_partials/_menu-desktop";

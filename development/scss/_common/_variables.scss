@@ -2,18 +2,21 @@
 
 // Color
 
-$white-color: #fff;
-$black-color: #212121;
-$blue-color: #451b59;
-$yellow-color: #ffeb3b;
+$white: #f7f7f7;
+$black: #212121;
+$blue: #451b59;
+$yellow: #faeb50;
 
-// Gradient color
+// Global padding for border
 
-$blue-light: #091443;
-$blue-dark: #05102f;
+$pad--s-mob: 10px;
+$pad--mob: 25px;
+$pad--tab: 30px;
+$pad--lap: 40px;
+$pad--des: 45px;
+$pad--l-des: 60px;
+$pad--f-hd: 80px;
 
-$global-padding-mobile: 25px;
-$global-padding-tablet: 30px;
-$global-padding-laptop: 40px;
-$global-padding-desktop: 45px;
-$global-padding-large-desktop: 80px;
+//
+
+$rectangle-size: 8px;

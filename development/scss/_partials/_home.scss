@@ -21,28 +21,8 @@
 			transition: filter .5s;
 		}
 
-		// video.blur {
-		// 	filter: blur(4px);
-		// }
-
 		video::-webkit-media-controls {
 			display:none !important;
-		}
-
-		.video-darken {
-			position: absolute;
-			top: 0;
-			left: 0;
-			z-index: 4;
-			width: 100%;
-			height: 100%;
-			background-color: #000;
-			opacity: 0;
-			transition: opacity .5s;
-		}
-
-		.video-darken.visible {
-			opacity: .65;
 		}
 
 		.content {
@@ -57,28 +37,14 @@
 				margin-top: 30px;
 			}
 
-			.btn-projects {
-				margin-top: 50px;
-				@include device('mobile') {
-					margin-top: 70px;
-				}
-
-				&:hover {
-					@include device('tablet') {
-						color: $black-color;
-						background-color: $white-color;
-					}
-				}
-			}
-
 			h1 {
 				font-family: Cocomat;
 				text-transform: uppercase;
 				font-weight: 500;
 				letter-spacing: .25em;
 				text-align: center;
-				@include responsive(font-size, 32px, 42px, 54px, 48px, 72px);
-				@include responsive(line-height, 32px, 42px, 54px, 48px, 72px);
+				@include responsive(font-size, 32px, 42px, 54px, 48px, 42px, 46px, 62px);
+				@include responsive(line-height, 32px, 42px, 54px, 48px, 42px, 46px, 62px);
 			}
 
 			h2 {
@@ -86,20 +52,17 @@
 				letter-spacing: .1em;
 				text-align: center;
 				margin-top: 30px;
-				@include responsive(font-size, 14px, 18px, 21px, 20px, 26px);
-				@include responsive(line-height, 14px, 18px, 21px, 20px, 26px);
-				@include device('mobile') {
-					margin-top: 20px;
-				}
+				@include responsive(font-size, 14px, 18px, 21px, 20px, 16px, 18px, 24px);
+				@include responsive(line-height, 14px, 18px, 21px, 20px, 16px, 18px, 24px);
 			}
 		}
 
-		.content.hide {
-			opacity: 0;
-
-			.btn-projects {
-				pointer-events: none;
-			}
+		.logo-blur {
+			position: absolute;
+			height: 300%;
+			//filter: blur(5px);
+			opacity: .07;
+			@include align(c,c);
 		}
 
 		.about-link,
@@ -107,9 +70,10 @@
 			user-select: none;
 			cursor: pointer;
 			position: absolute;
-			height: 800px;
-			width: 100px;
+			height: 60%;
+			width: 200px;
 			z-index: 6;
+			//background-color: #555;
 
 			.text {
 				position: absolute;
@@ -119,9 +83,10 @@
 					position: relative;
 					height: 20px;
 					width: 20px;
-					font-size: 18px;
+					@include responsive(font-size, 16px, 16px, 16px, 14px, 14px, 16px, 18px);
 					font-weight: 300;
-					margin: 15px 0;
+					@include responsive(margin-top, 10px, 10px, 10px, 8px, 5px, 8px, 10px);
+					@include responsive(margin-bottom, 10px, 10px, 10px, 8px, 5px, 8px, 10px);
 					transition: margin .25s;
 				}
 			}
@@ -129,7 +94,8 @@
 			&:hover {
 				.text {
 					div {
-						margin: 40px 0;
+						@include responsive(margin-top, 40px, 40px, 40px, 40px, 20px, 30px, 40px);
+						@include responsive(margin-bottom, 40px, 40px, 40px, 40px, 20px, 30px, 40px);
 					}
 				}
 			}
@@ -137,10 +103,9 @@
 
 		.about-link {
 			@include align(l,c);
-			@include responsive(margin-left, $global-padding-mobile, $global-padding-tablet, $global-padding-laptop, $global-padding-desktop, $global-padding-large-desktop);
 
 			.text {
-				left: 0;
+				@include responsive(left, $pad--s-mob, $pad--mob, $pad--tab, $pad--lap, $pad--des, $pad--l-des, $pad--f-hd);
 				transform: translateY(-50%) rotate(180deg);
 
 				div {
@@ -151,10 +116,9 @@
 
 		.contact-link {
 			@include align(r,c);
-			@include responsive(margin-right, $global-padding-mobile, $global-padding-tablet, $global-padding-laptop, $global-padding-desktop, $global-padding-large-desktop);
 
 			.text {
-				right: 0;
+				@include responsive(right, $pad--s-mob, $pad--mob, $pad--tab, $pad--lap, $pad--des, $pad--l-des, $pad--f-hd);
 				transform: translateY(-50%);
 
 				div {
@@ -166,21 +130,23 @@
 		.scrool-down {
 			position: absolute;
 			@include align(c,b);
-			@include responsive(margin-bottom, $global-padding-mobile, $global-padding-tablet, $global-padding-laptop, $global-padding-desktop, $global-padding-large-desktop);
-			z-index: 3;
+			@include responsive(margin-bottom, $pad--s-mob, $pad--mob, $pad--tab, $pad--lap, $pad--des, $pad--l-des, $pad--f-hd);
+			z-index: 4;
 
 			.line {
 				width: 1px;
-				height: 100px;
-				background-color: $white-color;
+				background-color: $yellow;
+				animation: ScroolDownLine 2s infinite ease-in-out;
 			}
 
 			.rectangle {
 				position: absolute;
-				@include align(c,t);
-				width: 5px;
-				height: 5px;
-				background-color: $white-color;
+				left: 50%;
+				transform: translateX(-50%);
+				width: $rectangle-size;
+				height: $rectangle-size;
+				background-color: $yellow;
+				animation: ScroolDownRectangle 2s infinite ease-in-out;
 			}
 		}
 
@@ -188,15 +154,30 @@
 			opacity: 0;
 		}
 
-		@keyframes ScroolDown {
+		@keyframes ScroolDownLine {
 			0% {
-				margin-bottom: 5px;
+				height: 100px;
+				margin-bottom: 20px;
 			}
-			50% {
-				margin-bottom: -5px;
+			30% {
+				height: 60px;
+				margin-bottom: 0;
 			}
 			100% {
-				margin-bottom: 5px;
+				height: 100px;
+				margin-bottom: 20px;
+			}
+		}
+
+		@keyframes ScroolDownRectangle {
+			0% {
+				top: 10%;
+			}
+			30% {
+				top: calc(100% - #{$rectangle-size});
+			}
+			100% {
+				top: 10%;
 			}
 		}
 	}
