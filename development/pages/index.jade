@@ -11,11 +11,12 @@ html
   body#index
 
     include _includes/_nav
+    include _includes/_menu
 
     #fullpage
       .section.fp-scrollable.header
         video(loop='', muted='', data-autoplay='')
-          source(src='assets/video/video-.mp4', type='video/mp4')
+          source(src='assets/video/video-bg.mp4', type='video/mp4')
           source(src='assets/video/video-.webm', type='video/webm')
         .video-darken
         .content
@@ -57,8 +58,6 @@ html
     script(src='http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js')
     script(src='http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TimelineMax.min.js')
     script(src='http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/easing/EasePack.min.js')
-    //- Blur Script
-    script(type='text/javascript', src='js/blur.js')
     //- Main Script
     script(type='text/javascript', src='js/main.js')
     //- Contact Script

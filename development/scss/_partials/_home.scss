@@ -4,6 +4,10 @@
 
 	.section.header {
 		position: relative;
+		transform: scale(1);
+
+		transition: all .5s;
+		animation-timing-function: ease-in-out;
 
 		video {
 			position: absolute;
@@ -136,7 +140,7 @@
 			.line {
 				width: 1px;
 				background-color: $yellow;
-				animation: ScroolDownLine 2s infinite ease-in-out;
+				animation: ScroolDownLine 3s infinite ease-in-out;
 			}
 
 			.rectangle {
@@ -146,7 +150,7 @@
 				width: $rectangle-size;
 				height: $rectangle-size;
 				background-color: $yellow;
-				animation: ScroolDownRectangle 2s infinite ease-in-out;
+				animation: ScroolDownRectangle 3s infinite ease-in-out;
 			}
 		}
 
@@ -180,5 +184,10 @@
 				top: 10%;
 			}
 		}
+	}
+
+	.header.open {
+		transform: scale(.8);
+		filter: blur(5px);
 	}
 }

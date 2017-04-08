@@ -170,12 +170,22 @@ window.onload = function() {
 	function navAnimation(action) {
 		if (action == 'open') {
 			hamburger.addClass("open");
+			$(".section.active").addClass("open");
+			$(".menu").addClass("open");
+			$("img.white").addClass("hide");
+			$("img.black").removeClass("hide");
+			socialMedia.addClass("black");
+			phone.addClass("black");
 			navigation.addClass("open");
-			navigationElemBlock.addClass("fade-in-down");
 		} else if (action == 'close') {
 			hamburger.removeClass("open");
+			$(".section.active").removeClass("open");
+			$(".menu").removeClass("open");
+			$("img.white").removeClass("hide");
+			$("img.black").addClass("hide");
+			socialMedia.removeClass("black");
+			phone.removeClass("black");
 			navigation.removeClass("open");
-			navigationElemBlock.removeClass("fade-in-down");
 		}
 	}
 

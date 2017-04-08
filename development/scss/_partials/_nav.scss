@@ -5,7 +5,7 @@ nav.border-nav {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 99999;
+  z-index: 100;
   user-select: none;
 
   @include indentation('margin');
@@ -48,8 +48,20 @@ nav.border-nav {
       pointer-events: auto;
 
       img {
+        position: absolute;
         width: auto;
+        color: #fff;
         @include responsive(height, 36px, 36px, 40px, 50px, 40px, 50px, 60px);
+
+        transition: opacity .5s;
+      }
+
+      img.white.hide {
+        opacity: 0;
+      }
+
+      img.black.hide {
+        opacity: 0;
       }
     }
   }
@@ -73,29 +85,30 @@ nav.border-nav {
         margin-bottom: 0;
       }
     }
-  }
 
-  .hamburger.open {
-    .line:nth-child(1) {
-			transform: translateY(9.25px) rotate(45deg);
-      @include device('tablet') {
-        transform: translateY(8.25px) rotate(45deg);
+    &.open {
+      .line {
+        background-color: $black;
       }
-      @include device('large-desktop') {
+
+      .line:nth-child(1) {
         transform: translateY(9.25px) rotate(45deg);
+        @include device('tablet') {
+          transform: translateY(8.25px) rotate(45deg);
+        }
       }
-		}
 
-		.line:nth-child(2) {
-			transform: scale(0);
-		}
-
-		.line:nth-child(3) {
-			transform: translateY(-9.25px) rotate(-45deg);
-      @include device('tablet') {
-        transform: translateY(-8.25px) rotate(-45deg);
+      .line:nth-child(2) {
+        transform: scale(0);
       }
-		}
+
+      .line:nth-child(3) {
+        transform: translateY(-9.25px) rotate(-45deg);
+        @include device('tablet') {
+          transform: translateY(-8.25px) rotate(-45deg);
+        }
+      }
+    }
   }
 
   .social-media {
@@ -108,7 +121,7 @@ nav.border-nav {
     a {
       pointer-events: auto;
       color: $white;
-      transition: color .25s;
+      transition: color .5s;
 
       p {
         display: inline-block;
@@ -121,6 +134,12 @@ nav.border-nav {
 
       &:hover {
         color: $yellow;
+      }
+    }
+
+    &.black {
+      a {
+        color: $black;
       }
     }
   }
@@ -136,7 +155,7 @@ nav.border-nav {
       font-family: "Montserrat";
       pointer-events: auto;
       color: $white;
-      transition: color .25s;
+      transition: color .5s;
 
       p {
         font-weight: 300;
@@ -147,6 +166,12 @@ nav.border-nav {
 
       &:hover {
         color: $yellow;
+      }
+    }
+
+    &.black {
+      a {
+        color: $black;
       }
     }
   }
